@@ -65,3 +65,51 @@ let timetable = {
     "Saturday" : ["OS","AIML","DSA"],
 }
 console.log(`The periods for Wednesday are ${timetable.Wednesday}`);
+
+
+/*Spotify CRUD Task:
+Create an array of song objects to simulate a simple Spotify playlist. Each song should
+have properties like id, title, artist, and duration. Using basic JavaScript:*/
+
+let song = [
+    {id : 101,title:"Dandelions",artist :"Ruth B.",duration :"3:53"},
+    {id : 102,title:"Vienna",artist :"Billy Joel",duration :"3:34"},
+    {id : 103,title:"The fate of Ophelia",artist :"Taylor Swift",duration :"3:46"},
+    {id : 104,title:"The Prophecy",artist :"Taylor Swift",duration :"4:09"},
+    {id : 105,title:"Perfect",artist :"Ed Sheeran",duration :"4:23"},
+]
+
+// • Add a new song to the playlist (Create)
+
+song.push({id : 106,title:"A Thousand years",artist :"Taylor Swift",duration :"4:45"});
+
+//• Display all songs using a loop (Read)
+
+for (let i=0; i < song.length; i++){
+    console.log(`${song[i].id} : ${song[i].title} by ${song[i].artist},duration:${song[i].duration}`);
+}
+
+    //• Update the title or artist of a specific song using its id (Update)
+
+for (let k=0; k < song.length; k++){
+    if (song[k].id === 106){
+        song[k].artist= "Christina Perri";
+        console.log(`Updated song:${song[k].id}:${song[k].title} by ${song[k].artist},duration:${song[k].duration}`);
+    }
+}   
+
+    //• Remove a song from the playlist using its id (Delete)
+for (let i=0; i < song.length; i++){
+    if(song[i].id === 105){
+        let removed = song.splice(i,1);
+        console.log(`Removed ${removed[0].title} from the playlist`);
+    }
+}
+
+    console.log(`Final playlist:`);
+
+    for (let j=0 ; j < song.length ; j++){
+        console.log(`${song[j].id} : ${song[j].title} by ${song[j].artist},duration:${song[j].duration}`);
+    }
+
+
