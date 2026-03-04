@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+    </head>
+    <body>
+        <button id="loadPost">Load Post</button>
+        <div id="output"></div>
+        <button id="clear">Clear Post</button>    
+          <script>
+            const API = 'https://jsonplaceholder.typicode.com/posts/1';
+            //let storage = JSON.parse(localStorage.getItem('API')) || [];
+            console.log(`Fetching from API: ${API}`);
+            const loadButton = document.getElementById('loadPost');
+            const output = document.getElementById('output');
+            const  clearButton = document.getElementById('clear');
+            loadButton.addEventListener('click',() => {
+            fetch(API)
+               .then(result => result.json())
+               .then(result => console.log(result))
+               .then(data => { output.innerHTML=`${data.title},${data.body}`});
+               localStorage.setItem('post',JSON.stringify(data));
+            })
+             .catch(() => { output.innerHTML = `Failed to load post`;});
+            clearButton.addEventListener('click',() => {
+                output.innerHTML = '';
+            })
+
+         </script>
+    </body>
+</html>
